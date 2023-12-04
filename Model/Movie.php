@@ -14,7 +14,7 @@ class Movie
 
 
 
-  function __construct($id, $title, $overview, $vote, $image, $language, Genre $genre)
+  function __construct($id, $title, $overview, $vote, $image, $language)
   {
     $this->id = $id;
     $this->title = $title;
@@ -22,7 +22,13 @@ class Movie
     $this->vote_average = $vote;
     $this->poster_path = $image;
     $this->original_language = $language;
-    $this->genre = $genre;
+
+    $genres = json_decode(file_get_contents(__DIR__ . "/../Model/genre_db.json"), true);
+
+    $randomIndex = array_rand($genres);
+    $randomGenre = $genres[$randomIndex];
+
+    $this->genre = new Genre($randomGenre);
   }
 
   public function getVote()
@@ -30,7 +36,7 @@ class Movie
     $vote = ceil($this->vote_average / 2);
     $template = "<p>";
     for ($n = 1; $n <= 5; $n++) {
-      $template .= $n <= $vote ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>';
+      $template .= $n <= $vote ? '<i class="fa-solid fa-star" style="color: #d9cc12;"></i>' : '<i class="fa-regular fa-star" style="color: #d9cc12;"></i>';
     }
     $template .= '</p>';
     return $template;
@@ -55,5 +61,5 @@ $movies = [];
 
 foreach ($movieList as $movie) {
   $genres = rand(0, count($genre) - 1);
-  $movies[] = new Movie($movie['id'], $movie['title'], $movie['overview'], $movie['vote_average'], $movie['poster_path'], $movie['original_language'], $action);
+  $movies[] = new Movie($movie['id'], $movie['title'], $movie['overview'], $movie['vote_average'], $movie['poster_path'], $movie['original_language']);
 }
