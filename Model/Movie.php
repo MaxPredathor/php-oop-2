@@ -31,6 +31,11 @@ class Movie
     $this->genre = new Genre($randomGenre);
   }
 
+  public function getFlag()
+  {
+      $flag = 'img/' . $this->original_language . '.png';
+      return $flag;
+  }
   public function getVote()
   {
     $vote = ceil($this->vote_average / 2);
@@ -49,17 +54,18 @@ class Movie
     $content = substr($this->overview, 0, 100) . "...";
     $custom = $this->getVote();
     $genre = $this->genre->name;
+    $flag = $this->getFlag();
     include __DIR__ . "/../Views/card.php";
   }
 }
 
-$action = new Genre('Action');
-$comedy = new Genre('Comedy');
+// $action = new Genre('Action');
+// $comedy = new Genre('Comedy');
 $movieString = file_get_contents(__DIR__ . "/movie_db.json");
 $movieList = json_decode($movieString, true);
 $movies = [];
 
 foreach ($movieList as $movie) {
-  $genres = rand(0, count($genre) - 1);
+  // $genres = rand(0, count($genre) - 1);
   $movies[] = new Movie($movie['id'], $movie['title'], $movie['overview'], $movie['vote_average'], $movie['poster_path'], $movie['original_language']);
 }

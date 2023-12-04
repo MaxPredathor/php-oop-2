@@ -16,6 +16,9 @@
       <div>
         <?= $genre ?>
       </div>
+      <div style="width: 24px">
+        <img class="w-100" src="<?= $flag ?>" alt="">
+      </div>
     </div>
   </div>
 </div>
