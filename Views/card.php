@@ -20,8 +20,14 @@
         <img class="w-100" src="<?= $flag ?>" alt="">
       </div>
       <div>
-        <? $quantity ?>
-        <? $price . '€' ?> 
+        Quantatita:
+        <?= $quantita ?>
+        <?= '- '. $price . '€' ?>
+        <!-- <?php if ($sconto > 0) { ?>
+            <div>Sonto :
+                <!-- <?= $sconto ?> 
+            </div>
+        <?php } ?> -->
       </div>
     </div>
   </div>
