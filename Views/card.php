@@ -13,11 +13,15 @@
         <div>
         </div>
       </div>
-      <div>
+      <div class="badge bg-primary">
         <?= $genre ?>
       </div>
       <div style="width: 24px">
         <img class="w-100" src="<?= $flag ?>" alt="">
+      </div>
+      <div>
+        <? $quantity ?>
+        <? $price . '€' ?> 
       </div>
     </div>
   </div>

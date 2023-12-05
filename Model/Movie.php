@@ -1,6 +1,7 @@
 <?php
 include __DIR__ . "/Genre.php";
-class Movie
+include __DIR__ . '/Product.php';
+class Movie extends Product
 {
   public int $id;
   public string $title;
@@ -14,8 +15,10 @@ class Movie
 
 
 
-  function __construct($id, $title, $overview, $vote, $image, $language)
+  function __construct($id, $title, $overview, $vote, $image, $language, $price, $quantita)
   {
+    parent::__construct($price, $quantita);
+
     $this->id = $id;
     $this->title = $title;
     $this->overview = $overview;
@@ -55,6 +58,8 @@ class Movie
     $custom = $this->getVote();
     $genre = $this->genre->name;
     $flag = $this->getFlag();
+    $price = $this->price;
+    $quantita = $this->quantita;
     include __DIR__ . "/../Views/card.php";
   }
 }
