@@ -8,17 +8,23 @@
       <p class="card-text">
         <?= $content ?>
       </p>
-      <div class="d-flex justify-content-between align-items-flex-start">
-        <?= $custom ?>
-        <div>
+      <?php if(isset($custom)) { ?>
+        <div class="d-flex justify-content-between align-items-flex-start">
+          <?= $custom ?>
+          <div>
+          </div>
         </div>
-      </div>
-      <div class="badge bg-primary">
-        <?= $genre ?>
-      </div>
-      <div style="width: 24px">
-        <img class="w-100" src="<?= $flag ?>" alt="">
-      </div>
+      <?php } ?>
+      <?php if(isset($genre)) { ?>
+        <div class="badge bg-primary">
+          <?= $genre ?>
+        </div>
+      <?php } ?>
+      <?php if(isset($flag)) { ?>
+        <div style="width: 24px">
+          <img class="w-100" src="<?= $flag ?>" alt="">
+        </div>
+      <?php } ?>
       <div>
         Quantatita:
         <?= $quantita ?>

@@ -21,7 +21,21 @@
 <body>
   <header>
     <div class="container">
-      <h1>OOP - Shop</h1>
+      <nav class="d-flex justify-content-between align-items-center">
+        <div>
+          <img class="w-25 d-inline-block" src="./img/logo.avif" alt="">
+          <h1 class="d-inline-block">Lorem Inc.</h1>
+        </div>
+        <div>
+          <ul class="d-flex justify-content-between list-unstyled">
+            <li class="px-3"><a class="text-decoration-none text-dark" href="index.php">Home</a></li>
+            <li class="px-3"><a class="text-decoration-none text-dark" href="BookPage.php">Books</a></li>
+            <li class="px-3"><a class="text-decoration-none text-dark" href="MoviePage.php">Movies</a></li>
+            <li class="px-3"><a class="text-decoration-none text-dark" href="GamePage.php">Games</a></li>
+          </ul>
+        </div>
+      </nav>
+      
     </div>
   </header>
   <main>

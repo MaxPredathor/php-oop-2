@@ -10,14 +10,14 @@ class Product
         $this->price = $price;
         $this->quantita = $quantita;
     }
-    public function setDiscount($title)
-    {
-        if ($title == 'Gunfight at Rio Bravo') {
-            return $this->sconto = 20;
-        } else {
-            return $this->sconto;
-        }
-    }
+    // public function setDiscount($title)
+    // {
+    //     if ($title == 'Gunfight at Rio Bravo') {
+    //         return $this->sconto = 20;
+    //     } else {
+    //         return $this->sconto;
+    //     }
+    // }
 }
 
 

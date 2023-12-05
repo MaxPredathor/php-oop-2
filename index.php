@@ -1,19 +1,16 @@
 <?php
 
 include __DIR__ . "/Views/header.php";
-include __DIR__ . "/Model/Movie.php";
-$movies = Movie::fetchAll();
 ?>
-
-<section class="container">
-  <h2>Movies</h2>
-  <div class="row">
-    <?php foreach ($movies as $movie) {
-      $movie->printCard();
-    } ?>
+<div class="container">
+  <h4>Selezionare un opzione</h4>
+  <div>
+    <a href=""></a>
+    <a href=""></a>
+    <a href=""></a>
   </div>
-
-</section>
+  
+</div>
 
 <?php
 include __DIR__ . "/Views/footer.php";
