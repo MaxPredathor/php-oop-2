@@ -72,5 +72,5 @@ $movies = [];
 
 foreach ($movieList as $movie) {
   // $genres = rand(0, count($genre) - 1);
-  $movies[] = new Movie($movie['id'], $movie['title'], $movie['overview'], $movie['vote_average'], $movie['poster_path'], $movie['original_language']);
+  $movies[] = new Movie($movie['id'], $movie['title'], $movie['overview'], $movie['vote_average'], $movie['poster_path'], $movie['original_language'], $quantity, $price);
 }
