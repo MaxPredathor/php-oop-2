@@ -5,9 +5,11 @@
       <h5 class="card-title">
         <?= $title ?>
       </h5>
-      <p class="card-text">
-        <?= $content ?>
-      </p>
+      <?php if(isset($content)) { ?>
+        <p class="card-text">
+          <?= $content ?>
+        </p>
+      <?php } ?>
       <?php if(isset($custom)) { ?>
         <div class="d-flex justify-content-between align-items-flex-start">
           <?= $custom ?>

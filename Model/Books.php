@@ -3,11 +3,11 @@ include __DIR__ ."/Product.php";
 
 class Book extends Product
 {
-  public int $id;
+  public int $_id;
   public string $title;
-  public string $overview;
+  public string $longDescription;
   public string $image;
-  public string $authors;
+  public array $authors;
 
 
 
@@ -15,19 +15,20 @@ class Book extends Product
   {
     parent::__construct($price, $quantita);
 
-    $this->id = $id;
+    $this->_id = $id;
     $this->title = $title;
-    $this->overview = $overview;
+    $this->longDescription = $overview;
     $this->image = $image;
-    $this->poster_path = $image;
     $this->authors = $authors;
 
   }
   public function printCard()
   {
+    $id = $this->_id;
     $image = $this->image;
     $title = $this->title;
-    $content = substr($this->overview, 0, 100) . "...";
+    $content = substr($this->longDescription, 0, 100) . "...";
+    $authors = $this->authors;
     $price = $this->price;
     $quantita = $this->quantita;
     include __DIR__ . "/../Views/card.php";
@@ -40,10 +41,13 @@ class Book extends Product
 
       $Books = [];
       foreach ($BookList as $item) {
-          $Bookgenres = [];
           $quantita = rand(0, 100);
           $price = rand(5, 200);
-          $Books[] = new Book($item['id'], $item['title'], $item['overview'],  $item['image'], $item['authors'], $price, $quantita);
+          $authorsList = [];
+            for ($i = 0; $i < count($item['authors']); $i++) {
+                array_push($authorsList, $item['authors'][$i]);
+            }
+          $Books[] = new Book($item['_id'], $item['title'], $item['longDescription'],  $item['thumbnailUrl'], $item['authors'], $price, $quantita);
       }
       return $Books;
   }
