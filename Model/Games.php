@@ -16,14 +16,16 @@ class Game extends Product
     $this->image = $image;
 
   }
-  public function printCard()
+  public function printedCard()
   {
-    $id = $this->appid;
-    $image = $this->image;
-    $title = $this->name;
-    $price = $this->price;
-    $quantita = $this->quantita;
-    include __DIR__ . "/../Views/card.php";
+    $cardItem = [
+      'id' => $this->appid,
+      'image' => $this->image,
+      'title' => $this->name,
+      'price' => $this->price,
+      'quantita' => $this->quantita
+    ];
+    return $cardItem;
   }
   public static function fetchAll()
   {

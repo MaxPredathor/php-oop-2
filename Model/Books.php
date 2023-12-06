@@ -22,16 +22,18 @@ class Book extends Product
     $this->authors = $authors;
 
   }
-  public function printCard()
+  public function printedCard()
   {
-    $id = $this->_id;
-    $image = $this->image;
-    $title = $this->title;
-    $content = substr($this->longDescription, 0, 100) . "...";
-    $authors = $this->authors;
-    $price = $this->price;
-    $quantita = $this->quantita;
-    include __DIR__ . "/../Views/card.php";
+    $cardItem = [
+      'id' => $this->_id,
+      'image' => $this->image,
+      'title' => $this->title,
+      'content' => substr($this->longDescription, 0, 100) . "...",
+      'authors' => $this->authors,
+      'price' => $this->price,
+      'quantita' => $this->quantita
+    ];
+    return $cardItem;
   }
   public static function fetchAll()
   {

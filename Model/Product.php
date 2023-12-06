@@ -1,7 +1,8 @@
 <?php 
-
+include __DIR__ . '../../Traits/DrowCard.php';
 class Product
 {
+    use DrawCard;
     protected float $price;
     public int $sconto;
     protected int $quantita;

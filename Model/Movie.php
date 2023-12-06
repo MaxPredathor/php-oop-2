@@ -50,18 +50,22 @@ class Movie extends Product
     return $template;
   }
 
-  public function printCard()
+  public function printedCard()
   {
-    $image = $this->poster_path;
-    $title = $this->title;
-    $content = substr($this->overview, 0, 100) . "...";
-    $custom = $this->getVote();
-    $genre = $this->genre->name;
-    $flag = $this->getFlag();
-    $price = $this->price;
-    $quantita = $this->quantita;
-    include __DIR__ . "/../Views/card.php";
+    $cardItem = [
+      'image' => $this->poster_path,
+      'title' => $this->title,
+      'content' => substr($this->overview, 0, 100) . "...",
+      'custom' => $this->getVote(),
+      'genre' => $this->genre->name,
+      'flag' => $this->getFlag(),
+      'price' => $this->price,
+      'quantita' => $this->quantita
+    ];
+    return $cardItem;
+    
   }
+  
   public static function fetchAll()
   {
 
